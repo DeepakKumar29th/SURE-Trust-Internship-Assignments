@@ -1,0 +1,1397 @@
+POWER BI DAY 4 HANDS-ON PRACTICE
+Topic: Production Readiness, Security, Refresh, Governance, QA Testing, and Final Project Explanation
+
+Objective:
+In Day 1, we built the model foundation and executive summary page.
+In Day 2, we added DAX-based profitability and discount analysis.
+In Day 3, we added drillthrough, tooltips, bookmarks, navigation, and performance checking.
+
+In Day 4, we will make the report production-ready by adding:
+1. Report health measures
+2. Data quality monitoring page
+3. Row-Level Security role testing
+4. Final QA checklist page
+5. Report guide page
+6. Refresh readiness note
+7. Publishing and sharing checklist
+8. Interview-ready project explanation page
+9. Final end-to-end user testing
+
+By the end of Day 4, your Power BI report should look like something that can be explained in a company project discussion or interview.
+
+
+IMPORTANT:
+Before starting Day 4, make sure your Day 3 Power BI file already has:
+
+[ ] FactSales table
+[ ] DimDate table
+[ ] _Measures table
+[ ] Executive Summary page
+[ ] Profitability Deep Dive page
+[ ] Product Detail page
+[ ] Product Tooltip page
+[ ] Page navigation
+[ ] Drillthrough
+[ ] Tooltip
+[ ] Bookmarks
+[ ] Reset View button
+[ ] High Discount Risk button
+[ ] Performance Analyzer tested
+
+
+------------------------------------------------------------
+PART 1: OPEN THE DAY 3 POWER BI FILE
+------------------------------------------------------------
+
+1. Open Power BI Desktop.
+
+2. Open the Day 3 file:
+
+   PowerBI_Day3_Interactive_Business_Report.pbix
+
+3. Click File.
+
+4. Click Save as.
+
+5. Save a new copy with this name:
+
+   PowerBI_Day4_Production_Ready_Report.pbix
+
+Reason:
+We are saving a new copy so that Day 3 work remains safe.
+
+
+------------------------------------------------------------
+PART 2: CHECK ALL EXISTING REPORT PAGES
+------------------------------------------------------------
+
+1. Look at the bottom page tabs.
+
+2. You should have these pages:
+
+   Executive Summary
+   Profitability Deep Dive
+   Product Detail
+   Product Tooltip
+
+3. Click each page once and confirm that visuals are visible.
+
+4. If Product Tooltip page was hidden, that is okay.
+
+Reason:
+Day 4 is built on top of the existing report. We are not starting from scratch.
+
+
+------------------------------------------------------------
+PART 3: CREATE RECORD COUNT MEASURE
+------------------------------------------------------------
+
+1. In the Fields pane, click the _Measures table.
+
+2. Go to the top ribbon.
+
+3. Click Table tools.
+
+4. Click New measure.
+
+5. Paste this DAX formula:
+
+Record Count =
+COUNTROWS(FactSales)
+
+6. Press Enter.
+
+Reason:
+This tells how many rows are available in the fact table.
+
+
+------------------------------------------------------------
+PART 4: CREATE DATA START DATE MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Data Start Date =
+MIN(DimDate[Date])
+
+4. Press Enter.
+
+Reason:
+This tells the earliest date available in the report data.
+
+
+------------------------------------------------------------
+PART 5: CREATE DATA END DATE MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Data End Date =
+MAX(DimDate[Date])
+
+4. Press Enter.
+
+Reason:
+This tells the latest date available in the report data.
+
+
+------------------------------------------------------------
+PART 6: CREATE DATA RANGE MESSAGE MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Data Range Message =
+"Data period: "
+    & FORMAT([Data Start Date], "dd-mmm-yyyy")
+    & " to "
+    & FORMAT([Data End Date], "dd-mmm-yyyy")
+
+4. Press Enter.
+
+Reason:
+This creates a readable data period message for users.
+
+
+------------------------------------------------------------
+PART 7: CREATE LAST REFRESH MESSAGE MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Last Refresh Message =
+"Last model refresh/open time: "
+    & FORMAT(NOW(), "dd-mmm-yyyy hh:mm AM/PM")
+
+4. Press Enter.
+
+Reason:
+This gives users a visible freshness indicator.
+
+Note:
+In Power BI Desktop, NOW() updates when the model recalculates or refreshes.
+In Power BI Service, it reflects refresh behavior based on the semantic model refresh.
+
+
+------------------------------------------------------------
+PART 8: CREATE REPORT USER MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Report User =
+"Current user: "
+    & USERPRINCIPALNAME()
+
+4. Press Enter.
+
+Reason:
+This shows the current signed-in user. It is useful while discussing security and row-level security.
+
+
+------------------------------------------------------------
+PART 9: CREATE COUNTRY COUNT MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Country Count =
+DISTINCTCOUNT(FactSales[Country])
+
+4. Press Enter.
+
+Reason:
+This tells how many countries are available in the current report context.
+
+
+------------------------------------------------------------
+PART 10: CREATE PRODUCT COUNT MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Product Count =
+DISTINCTCOUNT(FactSales[Product])
+
+4. Press Enter.
+
+Reason:
+This tells how many products are available in the current report context.
+
+
+------------------------------------------------------------
+PART 11: CREATE LOSS MAKING ROW COUNT MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Loss Making Row Count =
+CALCULATE(
+    COUNTROWS(FactSales),
+    FactSales[Profitability Band] = "Loss Making"
+)
+
+4. Press Enter.
+
+Reason:
+This counts records that are loss-making.
+
+
+------------------------------------------------------------
+PART 12: CREATE HIGH DISCOUNT ROW COUNT MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+High Discount Row Count =
+CALCULATE(
+    COUNTROWS(FactSales),
+    FactSales[Discount Strategy Band] = "High Discount"
+)
+
+4. Press Enter.
+
+Reason:
+This counts records that fall under high discount strategy.
+
+
+------------------------------------------------------------
+PART 13: CREATE LOSS MAKING SALES MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Loss Making Sales =
+CALCULATE(
+    [Total Sales],
+    FactSales[Profitability Band] = "Loss Making"
+)
+
+4. Press Enter.
+
+Reason:
+This calculates sales value coming from loss-making records.
+
+
+------------------------------------------------------------
+PART 14: CREATE HIGH DISCOUNT PROFIT MARGIN % MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+High Discount Profit Margin % =
+DIVIDE(
+    [High Discount Profit],
+    [High Discount Sales]
+)
+
+4. Press Enter.
+
+Reason:
+This checks whether high-discount transactions are still profitable.
+
+
+------------------------------------------------------------
+PART 15: CREATE REPORT QA STATUS MESSAGE MEASURE
+------------------------------------------------------------
+
+1. Click the _Measures table.
+
+2. Click New measure.
+
+3. Paste this DAX formula:
+
+Report QA Status Message =
+VAR LowMarginShare = [Low Margin Sales Share %]
+VAR HighDiscountShare = [High Discount Sales Share %]
+RETURN
+SWITCH(
+    TRUE(),
+    LowMarginShare >= 0.40 && HighDiscountShare >= 0.30,
+        "Review urgently: low-margin and high-discount sales are both high.",
+    LowMarginShare >= 0.40,
+        "Review margin quality: low-margin sales share is high.",
+    HighDiscountShare >= 0.30,
+        "Review discount strategy: high-discount sales share is high.",
+    "No immediate risk flag from margin and discount checks."
+)
+
+4. Press Enter.
+
+Reason:
+This gives a simple QA-style business warning based on margin and discount risk.
+
+
+------------------------------------------------------------
+PART 16: FORMAT DAY 4 MEASURES
+------------------------------------------------------------
+
+Format the new measures.
+
+1. Click each measure in the Fields pane.
+
+2. Go to Measure tools.
+
+3. Apply the following formats:
+
+Record Count:
+Whole Number
+
+Data Start Date:
+Date
+
+Data End Date:
+Date
+
+Country Count:
+Whole Number
+
+Product Count:
+Whole Number
+
+Loss Making Row Count:
+Whole Number
+
+High Discount Row Count:
+Whole Number
+
+Loss Making Sales:
+Currency or Decimal Number
+
+High Discount Profit Margin %:
+Percentage, 2 decimal places
+
+Data Range Message:
+No special formatting needed
+
+Last Refresh Message:
+No special formatting needed
+
+Report User:
+No special formatting needed
+
+Report QA Status Message:
+No special formatting needed
+
+
+------------------------------------------------------------
+PART 17: CREATE A NEW PAGE CALLED REPORT HEALTH
+------------------------------------------------------------
+
+1. Go to Report view.
+
+2. At the bottom, click the plus icon to create a new page.
+
+3. Right-click the new page tab.
+
+4. Click Rename page.
+
+5. Rename the page as:
+
+   Report Health
+
+Reason:
+This page will show report freshness, data range, record count, and business-risk checks.
+
+
+------------------------------------------------------------
+PART 18: ADD REPORT HEALTH PAGE TITLE
+------------------------------------------------------------
+
+1. Go to the Report Health page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Type:
+
+   Report Health and Data Quality Monitor
+
+5. Place it at the top of the page.
+
+6. Increase the font size.
+
+
+------------------------------------------------------------
+PART 19: ADD REPORT HEALTH CARDS
+------------------------------------------------------------
+
+Create the following cards on the Report Health page.
+
+Card 1:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Record Count.
+4. Title it: Total Records
+
+Card 2:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Country Count.
+4. Title it: Countries Available
+
+Card 3:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Product Count.
+4. Title it: Products Available
+
+Card 4:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Data Range Message.
+4. Title it: Data Period
+
+Card 5:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Last Refresh Message.
+4. Title it: Refresh Information
+
+Card 6:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Report User.
+4. Title it: Current User
+
+Reason:
+These cards help users and report owners understand report coverage and freshness.
+
+
+------------------------------------------------------------
+PART 20: ADD BUSINESS RISK QA CARDS
+------------------------------------------------------------
+
+Create the following cards on the Report Health page.
+
+Card 1:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Loss Making Row Count.
+4. Title it: Loss Making Rows
+
+Card 2:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag High Discount Row Count.
+4. Title it: High Discount Rows
+
+Card 3:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Loss Making Sales.
+4. Title it: Loss Making Sales
+
+Card 4:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag High Discount Profit Margin %.
+4. Title it: High Discount Margin %
+
+Card 5:
+1. Click blank canvas.
+2. Choose Card.
+3. Drag Report QA Status Message.
+4. Title it: QA Status Message
+
+Reason:
+These cards help identify whether the report contains margin or discount risk patterns.
+
+
+------------------------------------------------------------
+PART 21: ADD COUNTRY QA MATRIX
+------------------------------------------------------------
+
+1. Click a blank area on the Report Health page.
+
+2. Choose Matrix.
+
+3. Drag FactSales[Country] to Rows.
+
+4. Drag the following measures to Values:
+
+   - Record Count
+   - Total Sales
+   - Total Profit
+   - Profit Margin %
+   - Discount Rate %
+   - Low Margin Sales Share %
+   - High Discount Sales Share %
+
+5. Turn on Title.
+
+6. Set the title as:
+
+   Country-Level QA Summary
+
+Reason:
+This matrix helps compare data and risk metrics by country.
+
+
+------------------------------------------------------------
+PART 22: ADD PRODUCT QA MATRIX
+------------------------------------------------------------
+
+1. Click a blank area on the Report Health page.
+
+2. Choose Matrix.
+
+3. Drag FactSales[Product] to Rows.
+
+4. Drag the following measures to Values:
+
+   - Record Count
+   - Total Sales
+   - Total Profit
+   - Profit Margin %
+   - Discount Rate %
+   - Product Profit Rank
+   - Product Sales Contribution %
+
+5. Turn on Title.
+
+6. Set the title as:
+
+   Product-Level QA Summary
+
+Reason:
+This matrix helps review product-level sales, profit, rank, and contribution.
+
+
+------------------------------------------------------------
+PART 23: ADD REPORT HEALTH SLICERS
+------------------------------------------------------------
+
+Add slicers for the Report Health page.
+
+Slicer 1:
+1. Choose Slicer.
+2. Drag DimDate[Year].
+3. Title it: Year
+
+Slicer 2:
+1. Choose Slicer.
+2. Drag FactSales[Country].
+3. Title it: Country
+
+Slicer 3:
+1. Choose Slicer.
+2. Drag FactSales[Product].
+3. Title it: Product
+
+Slicer 4:
+1. Choose Slicer.
+2. Drag FactSales[Profitability Band].
+3. Title it: Profitability Band
+
+Slicer 5:
+1. Choose Slicer.
+2. Drag FactSales[Discount Strategy Band].
+3. Title it: Discount Strategy Band
+
+Reason:
+The report owner should be able to filter the health page and check specific risk areas.
+
+
+------------------------------------------------------------
+PART 24: CREATE PAGE NAVIGATOR ON REPORT HEALTH PAGE
+------------------------------------------------------------
+
+1. Go to the top ribbon.
+
+2. Click Insert.
+
+3. Click Buttons.
+
+4. Choose Navigator.
+
+5. Choose Page navigator.
+
+6. Place it near the top of the Report Health page.
+
+7. Resize it neatly.
+
+Reason:
+Users should be able to move from Report Health to other report pages easily.
+
+
+------------------------------------------------------------
+PART 25: CREATE A NEW PAGE CALLED FINAL QA CHECKLIST
+------------------------------------------------------------
+
+1. At the bottom, click the plus icon to create a new page.
+
+2. Right-click the new page tab.
+
+3. Click Rename page.
+
+4. Rename it as:
+
+   Final QA Checklist
+
+Reason:
+This page will contain the final testing checklist before the report is considered complete.
+
+
+------------------------------------------------------------
+PART 26: ADD FINAL QA CHECKLIST TITLE
+------------------------------------------------------------
+
+1. Go to Final QA Checklist page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Type:
+
+   Final Report QA Checklist
+
+5. Place it at the top of the page.
+
+6. Increase the font size.
+
+
+------------------------------------------------------------
+PART 27: ADD QA CHECKLIST TEXT BOX
+------------------------------------------------------------
+
+1. Click Insert.
+
+2. Click Text box.
+
+3. Paste the following checklist:
+
+Final QA Checklist:
+
+1. Data types checked in Power Query.
+2. FactSales table named properly.
+3. DimDate table created and marked as date table.
+4. Relationship between DimDate and FactSales checked.
+5. Important date fields sorted correctly.
+6. DAX measures created and formatted.
+7. Executive Summary page tested.
+8. Profitability Deep Dive page tested.
+9. Product Detail drillthrough tested.
+10. Product Tooltip tested.
+11. Bookmarks tested.
+12. Reset View button tested.
+13. High Discount Risk button tested.
+14. Slicers tested.
+15. Ranking tested under different filters.
+16. Decomposition Tree tested.
+17. Performance Analyzer checked.
+18. Report Health page reviewed.
+19. Row-Level Security tested.
+20. Final file saved.
+
+4. Resize the text box so the full checklist is visible.
+
+Reason:
+A report should be tested before it is shared. This checklist helps make testing systematic.
+
+
+------------------------------------------------------------
+PART 28: ADD INTERVIEW EXPLANATION TEXT BOX
+------------------------------------------------------------
+
+1. Stay on Final QA Checklist page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Paste the following text:
+
+Interview Explanation:
+
+I built a Power BI sales performance report using a clean reporting model. I created a FactSales table and a DimDate table, connected them using a one-to-many relationship, and built reusable DAX measures for sales, profit, margin, discount rate, contribution, ranking, and year-over-year analysis.
+
+The report includes an executive summary, profitability deep dive, product drillthrough page, custom tooltip, bookmark-based views, and a report health page. I also tested interactions, bookmarks, drillthrough, tooltip behavior, row-level security, and report performance.
+
+The main business goal of the report is to help leadership understand sales performance, profitability, discount impact, product contribution, and areas that need business investigation.
+
+5. Resize the text box clearly.
+
+Reason:
+Students should be able to explain the project in an interview, not just show the report.
+
+
+------------------------------------------------------------
+PART 29: ADD PAGE NAVIGATOR ON FINAL QA CHECKLIST PAGE
+------------------------------------------------------------
+
+1. Go to Insert.
+
+2. Click Buttons.
+
+3. Choose Navigator.
+
+4. Choose Page navigator.
+
+5. Place it near the top or side of the page.
+
+Reason:
+Users should be able to move from the checklist page to other report pages.
+
+
+------------------------------------------------------------
+PART 30: CREATE STATIC ROW-LEVEL SECURITY ROLE FOR CANADA
+------------------------------------------------------------
+
+1. Go to the top ribbon.
+
+2. Click Modeling.
+
+3. Click Manage roles.
+
+4. A Manage roles window will open.
+
+5. Click Create.
+
+6. Rename the role as:
+
+   Canada_Manager
+
+7. Select the FactSales table.
+
+8. In the table filter DAX expression box, enter:
+
+   [Country] = "Canada"
+
+9. Click Save.
+
+Reason:
+This role allows users to see only Canada data when this role is applied.
+
+
+------------------------------------------------------------
+PART 31: CREATE STATIC ROW-LEVEL SECURITY ROLE FOR USA
+------------------------------------------------------------
+
+1. Go to Modeling.
+
+2. Click Manage roles.
+
+3. Click Create.
+
+4. Rename the role as:
+
+   USA_Manager
+
+5. Select the FactSales table.
+
+6. In the table filter DAX expression box, enter:
+
+   [Country] = "United States of America"
+
+7. Click Save.
+
+Reason:
+This role allows users to see only United States data when this role is applied.
+
+
+------------------------------------------------------------
+PART 32: TEST CANADA RLS ROLE
+------------------------------------------------------------
+
+1. Go to the top ribbon.
+
+2. Click Modeling.
+
+3. Click View as.
+
+4. Select the role:
+
+   Canada_Manager
+
+5. Click OK.
+
+6. Go to Executive Summary page.
+
+7. Check whether the report shows only Canada data.
+
+8. Go to Profitability Deep Dive page.
+
+9. Check whether slicers and visuals are restricted to Canada.
+
+10. Go to Report Health page.
+
+11. Check whether Country Count and Country slicer reflect the Canada-only view.
+
+12. After testing, click Stop viewing.
+
+Reason:
+RLS must be tested before the report is shared.
+
+
+------------------------------------------------------------
+PART 33: TEST USA RLS ROLE
+------------------------------------------------------------
+
+1. Go to Modeling.
+
+2. Click View as.
+
+3. Select the role:
+
+   USA_Manager
+
+4. Click OK.
+
+5. Check Executive Summary page.
+
+6. Check Profitability Deep Dive page.
+
+7. Check Report Health page.
+
+8. Confirm the report shows only United States data.
+
+9. Click Stop viewing.
+
+Reason:
+Each security role should be tested separately.
+
+
+------------------------------------------------------------
+PART 34: ADD RLS NOTE TO FINAL QA CHECKLIST PAGE
+------------------------------------------------------------
+
+1. Go to Final QA Checklist page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Paste this note:
+
+Row-Level Security Note:
+
+This report contains two sample RLS roles:
+1. Canada_Manager
+2. USA_Manager
+
+These roles restrict users by country. In a real company, static RLS may be used for simple cases. For larger companies, dynamic RLS is usually preferred, where user email and region/country access are managed in a separate security mapping table.
+
+5. Place this note below or beside the checklist.
+
+Reason:
+This note explains the security setup in simple business language.
+
+
+------------------------------------------------------------
+PART 35: CREATE REPORT GUIDE PAGE
+------------------------------------------------------------
+
+1. At the bottom, click the plus icon to create a new page.
+
+2. Right-click the new page tab.
+
+3. Click Rename page.
+
+4. Rename it as:
+
+   Report Guide
+
+Reason:
+This page explains how users should use the report.
+
+
+------------------------------------------------------------
+PART 36: ADD REPORT GUIDE TITLE
+------------------------------------------------------------
+
+1. Go to Report Guide page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Type:
+
+   How to Use This Report
+
+5. Place it at the top of the page.
+
+6. Increase the font size.
+
+
+------------------------------------------------------------
+PART 37: ADD REPORT GUIDE CONTENT
+------------------------------------------------------------
+
+1. Click Insert.
+
+2. Click Text box.
+
+3. Paste the following content:
+
+Report Guide:
+
+1. Start with Executive Summary to understand overall sales, profit, margin, discount rate, and trend.
+
+2. Go to Profitability Deep Dive to investigate year-over-year change, product ranking, discount impact, and profit root causes.
+
+3. Right-click a product in the Product Profitability Ranking matrix and choose Drill through to open Product Detail.
+
+4. Use Product Detail to understand product-level sales, profit, margin, country performance, segment performance, and discount impact.
+
+5. Hover over products in the ranking matrix to see the custom tooltip.
+
+6. Use Reset View to clear filters and return to the normal view.
+
+7. Use High Discount Risk to quickly inspect high-discount and weak-margin business risk.
+
+8. Use Report Health to check data range, refresh information, row count, risk indicators, and QA metrics.
+
+9. Use Final QA Checklist to verify whether the report is ready for sharing.
+
+10. Use slicers carefully. Slicers change the filter context and therefore change all DAX measure results.
+
+4. Resize the text box clearly.
+
+Reason:
+A report guide helps business users understand how to navigate and use the report.
+
+
+------------------------------------------------------------
+PART 38: ADD PAGE NAVIGATOR ON REPORT GUIDE PAGE
+------------------------------------------------------------
+
+1. Go to Insert.
+
+2. Click Buttons.
+
+3. Choose Navigator.
+
+4. Choose Page navigator.
+
+5. Place it near the top or side of the Report Guide page.
+
+Reason:
+The guide page should also allow easy navigation to other pages.
+
+
+------------------------------------------------------------
+PART 39: MOVE REPORT GUIDE PAGE TO THE FIRST POSITION
+------------------------------------------------------------
+
+1. At the bottom page tabs, find Report Guide.
+
+2. Drag the Report Guide page tab to the far left.
+
+3. It should become the first page.
+
+Reason:
+When users open the report, they should first see how to use it.
+
+
+------------------------------------------------------------
+PART 40: OPTIONAL - HIDE PRODUCT TOOLTIP PAGE
+------------------------------------------------------------
+
+1. At the bottom page tabs, right-click Product Tooltip.
+
+2. Click Hide page.
+
+Reason:
+Tooltip pages are not normal navigation pages. They are used in the background.
+
+
+------------------------------------------------------------
+PART 41: OPTIONAL - HIDE PRODUCT DETAIL PAGE FROM NORMAL NAVIGATION
+------------------------------------------------------------
+
+1. Right-click Product Detail page tab.
+
+2. Click Hide page only if your teacher asks you to hide it.
+
+Reason:
+Product Detail is mainly reached through drillthrough. In some company reports, drillthrough pages are hidden from normal navigation.
+
+For today, you may keep it visible if you want easier testing.
+
+
+------------------------------------------------------------
+PART 42: RUN FINAL PERFORMANCE ANALYZER CHECK
+------------------------------------------------------------
+
+1. Go to Profitability Deep Dive page.
+
+2. Go to the top ribbon.
+
+3. Click Optimize.
+
+4. Click Performance Analyzer.
+
+5. If you do not see Optimize, go to View and open Performance Analyzer.
+
+6. Click Start recording.
+
+7. Click Refresh visuals.
+
+8. Wait for timings to appear.
+
+9. Look for slow visuals.
+
+10. Click Stop recording.
+
+11. Note any visual that takes more time than the others.
+
+Reason:
+Report performance matters. A slow report creates poor user experience.
+
+
+------------------------------------------------------------
+PART 43: ADD FINAL PERFORMANCE NOTE
+------------------------------------------------------------
+
+1. Go to Final QA Checklist page.
+
+2. Click Insert.
+
+3. Click Text box.
+
+4. Paste this note:
+
+Performance Note:
+
+Performance Analyzer was used to check visual rendering time. If a report becomes slow, review:
+- number of visuals on the page
+- complex DAX measures
+- high-cardinality fields
+- unnecessary columns
+- heavy custom visuals
+- too many slicers
+- model relationships
+- data volume
+
+5. Place this note neatly.
+
+Reason:
+This documents that performance was considered before finalizing the report.
+
+
+------------------------------------------------------------
+PART 44: OPTIONAL - PUBLISH TO POWER BI SERVICE
+------------------------------------------------------------
+
+Do this only if you have a Power BI account and your teacher asks you to publish.
+
+1. Click Home.
+
+2. Click Publish.
+
+3. Sign in if Power BI asks you to sign in.
+
+4. Choose a workspace.
+
+5. For practice, choose:
+
+   My workspace
+
+   or the workspace provided by your teacher.
+
+6. Click Select.
+
+7. Wait for the publish to complete.
+
+8. After publishing, Power BI will show a success message.
+
+Reason:
+Publishing moves the report from Power BI Desktop to Power BI Service so that it can be shared, refreshed, secured, and consumed online.
+
+
+------------------------------------------------------------
+PART 45: OPTIONAL - CHECK REPORT IN POWER BI SERVICE
+------------------------------------------------------------
+
+Do this only if you published the report.
+
+1. Open Power BI Service in browser.
+
+2. Go to the workspace where you published.
+
+3. Open the report.
+
+4. Check whether all pages are visible.
+
+5. Check whether visuals load properly.
+
+6. Check whether navigation works.
+
+7. Check whether drillthrough works.
+
+8. Check whether tooltip works.
+
+Reason:
+A report should be tested after publishing, not only inside Desktop.
+
+
+------------------------------------------------------------
+PART 46: OPTIONAL - CONFIGURE RLS IN POWER BI SERVICE
+------------------------------------------------------------
+
+Do this only if you published the report and your account allows it.
+
+1. Go to the workspace in Power BI Service.
+
+2. Find the semantic model related to your report.
+
+3. Click More options.
+
+4. Click Security.
+
+5. You should see the roles created in Power BI Desktop:
+
+   Canada_Manager
+   USA_Manager
+
+6. Add user email addresses or groups to the correct role.
+
+7. Save.
+
+8. Use Test as role if available.
+
+Reason:
+Creating RLS roles in Desktop is not enough. After publishing, users or groups must be assigned to roles in Power BI Service.
+
+
+------------------------------------------------------------
+PART 47: OPTIONAL - CHECK REFRESH SETTINGS IN POWER BI SERVICE
+------------------------------------------------------------
+
+Do this only if you published the report.
+
+1. Go to the workspace.
+
+2. Find the semantic model.
+
+3. Click More options.
+
+4. Click Settings.
+
+5. Look for refresh-related settings.
+
+6. Check data source credentials.
+
+7. If your source file is local Excel, refresh may require a gateway or a cloud source such as OneDrive or SharePoint.
+
+8. If refresh is available, click Refresh now.
+
+9. Check whether refresh succeeds or fails.
+
+Reason:
+A report is not production-ready unless the refresh process is understood.
+
+Important:
+If refresh fails because the data source is a local file path, that is normal unless gateway or cloud storage is configured.
+
+
+------------------------------------------------------------
+PART 48: OPTIONAL - SHARING CHECKLIST
+------------------------------------------------------------
+
+Before sharing a Power BI report, check:
+
+1. Who is the audience?
+2. Should they only view or also edit?
+3. Is RLS required?
+4. Is the data confidential?
+5. Is refresh configured?
+6. Is the report tested after publishing?
+7. Is the semantic model shared properly?
+8. Should the report be distributed as an app instead of directly sharing workspace access?
+
+Reason:
+Sharing is not just sending a link. Sharing controls who can see and use business data.
+
+
+------------------------------------------------------------
+PART 49: FINAL END-TO-END USER TESTING
+------------------------------------------------------------
+
+Before saving the final file, complete this full test.
+
+Test 1:
+1. Go to Report Guide.
+2. Use page navigator to move to Executive Summary.
+
+Test 2:
+1. On Executive Summary, apply Year slicer.
+2. Check whether KPI cards and charts change.
+
+Test 3:
+1. Go to Profitability Deep Dive.
+2. Click High Discount Risk button.
+3. Check whether page changes to the risk view.
+
+Test 4:
+1. Click Reset View.
+2. Check whether page returns to default view.
+
+Test 5:
+1. Right-click a product in Product Profitability Ranking matrix.
+2. Drill through to Product Detail.
+3. Check whether Product Detail shows the selected product.
+
+Test 6:
+1. Click Back button.
+2. Confirm that you return to Profitability Deep Dive.
+
+Test 7:
+1. Hover over product in Product Profitability Ranking matrix.
+2. Confirm Product Tooltip appears.
+
+Test 8:
+1. Go to Report Health.
+2. Check data range, record count, and QA status message.
+
+Test 9:
+1. Go to Final QA Checklist.
+2. Review the checklist.
+
+Test 10:
+1. Test Canada_Manager role using View as.
+2. Test USA_Manager role using View as.
+3. Stop viewing after test.
+
+Reason:
+This is final report testing. A report should be tested like a product.
+
+
+------------------------------------------------------------
+PART 50: SAVE THE FINAL DAY 4 FILE
+------------------------------------------------------------
+
+1. Click File.
+
+2. Click Save.
+
+3. Make sure the file name is:
+
+   PowerBI_Day4_Production_Ready_Report.pbix
+
+
+------------------------------------------------------------
+FINAL DAY 4 CHECKLIST
+------------------------------------------------------------
+
+Before closing Power BI, confirm that you completed:
+
+[ ] Day 3 file opened
+[ ] New Day 4 copy saved
+[ ] Record Count measure created
+[ ] Data Start Date measure created
+[ ] Data End Date measure created
+[ ] Data Range Message measure created
+[ ] Last Refresh Message measure created
+[ ] Report User measure created
+[ ] Country Count measure created
+[ ] Product Count measure created
+[ ] Loss Making Row Count measure created
+[ ] High Discount Row Count measure created
+[ ] Loss Making Sales measure created
+[ ] High Discount Profit Margin % measure created
+[ ] Report QA Status Message measure created
+[ ] New measures formatted
+[ ] Report Health page created
+[ ] Report Health cards added
+[ ] Business risk QA cards added
+[ ] Country QA matrix added
+[ ] Product QA matrix added
+[ ] Report Health slicers added
+[ ] Page navigator added to Report Health
+[ ] Final QA Checklist page created
+[ ] QA checklist text added
+[ ] Interview explanation text added
+[ ] Page navigator added to Final QA Checklist
+[ ] Canada_Manager RLS role created
+[ ] USA_Manager RLS role created
+[ ] Canada_Manager role tested
+[ ] USA_Manager role tested
+[ ] RLS note added
+[ ] Report Guide page created
+[ ] Report Guide content added
+[ ] Page navigator added to Report Guide
+[ ] Report Guide moved to first page
+[ ] Product Tooltip page hidden if required
+[ ] Product Detail page hidden if required
+[ ] Final Performance Analyzer check completed
+[ ] Performance note added
+[ ] Optional publish completed if account allows
+[ ] Optional Power BI Service testing completed if published
+[ ] Optional RLS configuration in Service checked if published
+[ ] Optional refresh settings checked if published
+[ ] Final end-to-end testing completed
+[ ] File saved
+
+
+------------------------------------------------------------
+END OF DAY 4 POWER BI PRACTICE
+------------------------------------------------------------
+
+Main learning:
+Day 1 created the model foundation.
+Day 2 created the analytical DAX layer.
+Day 3 created interactivity and investigation flow.
+Day 4 made the report production-ready.
+
+A company-ready Power BI report should not only have visuals.
+It should also have:
+- security thinking
+- refresh thinking
+- governance thinking
+- QA testing
+- user guidance
+- report health monitoring
+- performance checking
+- interview-ready explanation
+
+A report is not complete when the visuals are built.
+A report is complete when it is trusted, tested, secured, explainable, and usable by the business.
