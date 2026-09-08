@@ -1,0 +1,48 @@
+NumPy Final Interview Problem
+Business Scenario: Online Retail Sales Audit
+
+You are working as a Data Analyst for a UK-based online retail company.
+
+The company sells gift products online, and many of its customers are wholesalers. The leadership team suspects that the current sales dashboard may not be fully reliable because some transactions may include returns, cancellations, missing customer records, unusually high invoice values, and unusual quantity or price values.
+
+Your task is to use the **Online Retail II** dataset and perform a business audit using NumPy wherever possible.
+
+You may use Pandas only to load the dataset and select the required columns. After that, convert the needed columns into NumPy arrays and complete the analysis.
+Main Business Question
+
+Can the company directly trust the current sales dashboard, or should the data be cleaned and validated before reporting?
+
+Dataset
+
+Use the **Online Retail II** dataset from the UCI Machine Learning Repository.
+
+Problem Statement
+
+The management team wants you to analyze the transaction data and identify important business findings related to sales performance, risky records, customer behavior, product performance, and country-level revenue contribution.
+
+Your final output should be a short business report, not just code output.
+
+The report should answer:
+
+1. What is the overall sales performance?
+2. Are there any unusual or risky transaction values?
+3. Are returns or cancellations affecting revenue?
+4. Which products are contributing the most to revenue?
+5. Which countries are contributing the most to revenue?
+6. Which customers appear to be high-value customers?
+7. Are there missing or invalid values that can affect dashboard accuracy?
+8. Are extreme values affecting business KPIs?
+9. Is there any relationship between quantity, price, and revenue?
+10. Can the dashboard be trusted directly, or does the data need cleaning before reporting?
+
+Final Deliverable
+
+Submit:
+
+1. Python code using NumPy wherever possible
+2. Important outputs
+3. A short business interpretation for each major finding
+4. Final recommendation to the management team
+
+Your answer should sound like a data analyst explaining findings to a business manager.
+https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii?
