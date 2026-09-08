@@ -1,832 +1,585 @@
 # SURE-Trust  Data Analytics Internship Assignments
 
-A collection of projects, assignments, interview-style problems, and practical exercises completed during a six-month **Data Analytics Internship**.
+## 📌 Overview
 
-The portfolio follows a practical, case-based approach covering business understanding, requirements, SQL, Python, OOP, data analysis, statistics, dashboard development, data auditing, and business insights.
+This repository contains the **projects, assignments, practical exercises, and interview-based case studies completed under a Data Analytics Internship**.
+
+The internship work follows a practical, case-based approach that connects:
+
+**Business Understanding → Requirements → Data → Analysis → Visualization → Insights → Decision Support**
+
+The portfolio covers **Business Analysis, SQL, Python, Object-Oriented Programming, Data Cleaning, Statistical Analysis, Excel, Power BI, Data Auditing, and Business Intelligence**.
 
 ---
 
-## 📌 Overview
+## 🎯 Internship Focus
 
-This repository documents my learning and project work across both **Data Analytics / Business Intelligence** and **Python OOP / Interview Practice**.
-
-The work focuses on understanding a business problem, converting it into requirements, designing solutions, working with data, validating results, and presenting useful business findings.
-
-### Main Areas
-
-- Business requirement analysis
-- Client/user persona creation
-- SQL and relational database management
-- Python programming and OOP
-- Pandas and NumPy
-- Data cleaning and auditing
-- Quantitative and statistical analysis
-- Excel and Power BI
-- Business intelligence
-- Data visualization
-- Interview-style business cases
-- Business insights and recommendations
+| Area | Focus |
+|---|---|
+| Business Understanding | Client persona, business problems, requirements |
+| SQL & Databases | Database design, DDL, DML, joins, subqueries, CTEs |
+| Python & OOP | Classes, objects, inheritance, polymorphism, validation |
+| Data Analysis | Pandas, NumPy, cleaning, exploration, business metrics |
+| Statistics | Descriptive statistics, distributions, skewness, kurtosis |
+| Business Intelligence | Excel-based reporting, KPI analysis, dashboard concepts |
+| Data Auditing | Data-quality checks, reconciliation, anomaly identification |
+| Interview Preparation | OOP problems and business-focused analytics cases |
 
 ---
 
-## 📂 Projects & Assignments
+# 📂 Internship Projects & Assignments
 
-A collection of projects and assignments completed during a six-month
-**Data Analytics Internship**.
+The following work was completed as part of the internship and is organized around progressively broader analytics and problem-solving skills.
 
-The work follows a practical, case-based approach covering business
-understanding, SQL, data analysis, statistics, dashboard development,
-and business insights.
+| No. | Project / Assignment | Primary Area | Key Learning |
+|---:|---|---|---|
+| A1 | Client Persona | Business Analysis | Understanding users, goals, frustrations and reporting needs |
+| A2 | Business Requirements Document | Business Analysis | Translating business needs into measurable dashboard requirements |
+| A3 | SQL DDL & DML | SQL | Tables, constraints, relationships and data manipulation |
+| A4 | SQL Assignment | SQL & Database | End-to-end relational database and analytical querying |
+| A5 | SQL Hands-on | SQL | Joins, subqueries and CTEs |
+| A6 | Final SQL Use Cases | SQL & Analytics | Solving practical business questions with SQL |
+| A7 | Quantitative Assignment | Statistics | Descriptive and distribution-based analysis |
+| — | Retail Sales Management System | Database Design | Retail database structure, relationships and ER modeling |
+| — | DMART Varthur Sales Dashboard | BI & Sales Analytics | KPI reporting, sales trends and business performance analysis |
+| — | Python OOP Practice | Python | Business systems using classes and object-oriented design |
+| — | Data Analyst Case Practice | Data Analysis | Data cleaning, validation and business interpretation |
+| — | Online Course Enrollment Analysis | Pandas | Revenue validation and enrollment-quality analysis |
+| — | Online Retail Sales Audit | NumPy & Data Audit | Transaction validation, returns and suspicious-value analysis |
 
-## 📌 Overview
+---
 
-This repository documents my learning and project work throughout the
-internship.
+# 1. 👤 Client Persona
 
-The main focus was to understand a business problem, convert it into
-requirements, work with data, perform analysis, and present the findings
-in a useful business format.
+Created a persona for a **Regional Retail Manager** to understand the primary user of a retail analytics and reporting solution.
 
-The internship covered areas such as:
+### Covered
 
--   Business requirement analysis
--   Client/user persona creation
--   SQL and relational database management
--   Data analysis and exploration
--   Quantitative and statistical analysis
--   Excel-based analysis and dashboards
--   Business intelligence concepts
--   Data visualization
--   Business insights and recommendations
+- Business goals
+- Motivations
+- Frustrations
+- Work style
+- Leadership approach
+- Market environment
+- Information and reporting needs
+- Operational decision-making needs
 
-## 📂 Projects & Assignments
+The persona establishes the **business-user perspective** before designing the analytical solution.
 
-### A1. Client Persona
+---
 
-Created a persona for a **Regional Retail Manager** to understand the
-needs of the main dashboard user.
+# 2. 📋 Business Requirements Document
 
-The persona covered:
+Prepared a **Business Requirements Document (BRD)** for a **Unified Sales & Performance Dashboard** for the DMART Varthur case.
 
--   Business goals
--   Motivations
--   Frustrations
--   Work style
--   Leadership approach
--   Market environment
--   Information and reporting needs
+The objective was to create a reliable view of sales performance and reduce dependence on manual, ad-hoc analysis.
 
-The persona was used as a foundation for understanding what a retail
-manager needs from an analytics solution.
+### Key Requirements
 
-### A2. Business Requirements Document (BRD)
+| Requirement | Purpose |
+|---|---|
+| Total Sales | Overall sales performance |
+| Bills & Units | Transaction and volume monitoring |
+| Average Bill Value | Customer transaction-value analysis |
+| Daily / Weekly / Monthly Trends | Time-based performance tracking |
+| Weekend vs Weekday | Customer shopping-pattern comparison |
+| Salary vs Non-Salary Period | Period-based sales comparison |
+| Festival vs Non-Festival | Promotional / seasonal comparison |
+| Category Performance | Identify strong and weak categories |
+| SKU Analysis | Identify product-level opportunities and risks |
+| Payment Mode Analysis | Understand payment behavior |
+| Bill Value Distribution | Understand transaction-value patterns |
+| Filters & Drill-down | Support detailed investigation |
 
-Prepared a BRD for a **Unified Sales & Performance Dashboard** for the
-DMART Varthur case.
+The BRD positions the dashboard as a **single source of truth for sales performance and business review**.
 
-The requirements focused on helping store and regional managers
-understand sales performance without depending heavily on manual
-analysis.
+---
 
-Key requirements included:
+# 3. 🗄️ SQL DDL & DML Assignment
 
--   Overall sales performance
--   Daily, weekly, and monthly trends
--   Weekend vs weekday analysis
--   Salary week vs non-salary week analysis
--   Festival vs non-festival comparison
--   Category performance
--   Product and SKU analysis
--   Transaction insights
--   Payment mode analysis
--   Dashboard filters and drill-downs
+Worked on relational database creation and data management using SQL.
 
-The BRD defines the dashboard as a single source of truth for sales
-performance and business review.
+### Topics Covered
 
-### A3. SQL DDL & DML Assignment
+- Creating relational tables
+- Primary keys
+- Foreign keys
+- `NOT NULL`
+- `UNIQUE`
+- `CHECK` constraints
+- Data insertion
+- Data updates
+- Referential integrity
+- Database relationships
 
-Worked on database creation and data management using SQL.
+A food-delivery business scenario was used for database practice.
 
-Topics covered:
+---
 
--   Creating relational tables
--   Primary keys
--   Foreign keys
--   `NOT NULL`
--   `UNIQUE`
--   `CHECK` constraints
--   Inserting data
--   Updating data
--   Maintaining referential integrity
+# 4. 🧾 SQL Assignment
 
-A food delivery platform was used as one of the database practice
-scenarios.
+Completed an end-to-end SQL assignment based on a **Retail Sales Management System**.
 
-### A4. SQL Assignment
+### SQL Areas
 
-Completed an end-to-end SQL database management assignment based on a
-**Retail Sales Management System**.
+| SQL Area | Application |
+|---|---|
+| DDL | Database and table creation |
+| DML | Insert, update and delete operations |
+| DQL | Data retrieval and analysis |
+| TCL | Transaction management |
+| DCL | User permissions |
+| Constraints | Data integrity |
+| Indexes | Query and database management |
+| Relationships | Connecting business entities |
+| Analytical Queries | Business-focused analysis |
 
-The assignment covered:
+The project also includes **ER diagram-based database design**.
 
--   DDL
--   DML
--   DQL
--   TCL
--   DCL
--   Database relationships
--   Constraints
--   Indexes
--   Data analysis queries
--   Transaction management
--   User permissions
+---
 
-The project also included an ER diagram as part of the database design.
+# 5. 🔎 SQL Hands-on
 
-### A5. SQL Hands-on
+Practiced SQL through three major querying techniques.
 
-Practiced SQL using three important areas:
+### Joins
 
-#### Joins
+Used multiple related tables to answer business questions and retrieve connected records.
 
-Worked with queries involving multiple related tables.
+### Subqueries
 
-#### Subqueries
+Used nested queries to solve filtering and comparison problems.
 
-Used nested queries to solve business and analytical questions.
+### Common Table Expressions
 
-#### CTEs
+Used **CTEs** to structure complex queries into more readable and manageable steps.
 
-Used Common Table Expressions to make complex queries easier to
-structure and understand.
+### Example Problem Types
 
-The exercises included examples such as:
+- Finding records with no related data
+- Counting employees and projects
+- Finding books that were never borrowed
+- Calculating loan counts
+- Ranking records
+- Finding overdue records
+- Identifying top categories and books
 
--   Finding records with no related data
--   Counting employees and projects
--   Finding books that were never borrowed
--   Calculating loan counts
--   Ranking records
--   Finding overdue records
--   Identifying top categories and books
+---
 
-### A6. Final SQL Use Cases
+# 6. 🧠 Final SQL Use Cases
 
-Applied SQL concepts to practical business questions using relational
-data.
+Applied SQL concepts to practical business questions rather than limiting the work to basic data retrieval.
 
-The work focused on using SQL not only to retrieve data, but also to
-answer business questions through:
+### Techniques Used
 
--   Filtering
--   Aggregation
--   Joins
--   Subqueries
--   CTEs
--   Ranking
--   Analytical calculations
+- Filtering
+- Aggregation
+- Joins
+- Subqueries
+- CTEs
+- Ranking
+- Analytical calculations
+- Business-oriented metrics
 
-### A7. Quantitative Analysis
+The objective was to move from **SQL syntax practice to business problem solving**.
+
+---
+
+# 7. 📊 Quantitative Analysis
 
 Performed statistical analysis on sales transaction data.
 
-The analysis included:
+### Statistical Measures
 
--   Mean
--   Median
--   Mode
--   Variance
--   Standard deviation
--   Skewness
--   Kurtosis
--   Sales distribution
--   Outlier analysis
+| Measure | Result |
+|---|---:|
+| Mean Transaction Value | ₹384.15 |
+| Median Transaction Value | ₹289.75 |
+| Mode | ₹228 |
+| Standard Deviation | ₹338.36 |
+| Skewness | 3.17 |
+| Kurtosis | 13.23 |
 
-One key finding was that the sales data was strongly right-skewed. The
-mean was higher than the median, showing that a smaller number of
-high-value transactions had an effect on the overall average.
+### Analysis Areas
 
-## 🛒 Retail Sales Management System
+- Mean
+- Median
+- Mode
+- Variance
+- Standard deviation
+- Skewness
+- Kurtosis
+- Sales distribution
+- Outlier analysis
+
+### Key Interpretation
+
+The distribution is **strongly right-skewed**. The mean is higher than the median, indicating that a smaller number of high-value transactions increase the overall average.
+
+---
+
+# 8. 🛒 Retail Sales Management System
 
 Designed a relational database for a retail sales environment.
 
-### Main Tables
+### Main Entities
 
--   Customers
--   Employees
--   Products
--   Orders
--   Order Items
+| Entity | Role |
+|---|---|
+| Customers | Stores customer information |
+| Employees | Represents employees involved in operations |
+| Products | Stores product information |
+| Orders | Represents customer orders |
+| Order Items | Connects orders with products |
 
-### Database Relationships
+The database design demonstrates relationships between customers, employees, orders, and products, supported by SQL scripts and ER diagrams.
 
-The database connects customers and employees with orders, while order
-items connect orders with products.
+---
 
-The ER diagram was created to represent these relationships and the SQL
-scripts were used to implement the database.
+# 9. 📈 DMART Varthur Sales Dashboard
 
-## 📊 DMART Varthur Sales Dashboard
+Developed a sales and performance dashboard around the **DMART Varthur** case.
 
-One of the main practical projects was a sales and performance dashboard
-based on the **DMART Varthur** case.
+The dashboard was designed from the perspective of a store or regional manager and focuses on making sales information easier to interpret for business decisions.
 
-The dashboard was designed around the requirements of a store/regional
-manager.
+### Dashboard Coverage
 
-### Key Areas
-
--   Sales performance
--   Bills and units sold
--   Average Bill Value
--   Category contribution
--   Product performance
--   Payment modes
--   Sales trends
--   Weekend and weekday comparison
--   Festival and non-festival comparison
--   Salary week analysis
--   Discount impact
--   Transaction/bill value distribution
-
-The objective was to make important sales information easier to
-understand and support faster business decisions.
-
-## 📈 Business & Statistical Insights
-
-The quantitative analysis showed:
-
--   Mean transaction value: **₹384.15**
--   Median transaction value: **₹289.75**
--   Mode: **₹228**
--   Standard deviation: **₹338.36**
--   Skewness: **3.17**
--   Kurtosis: **13.23**
-
-The results indicate that most transactions were in the lower-to-medium
-value range, while a smaller number of high-value transactions created a
-long right tail in the distribution.
-
-## 🛠️ Tools & Technologies
-
-### Data & Database
-
--   SQL
--   PostgreSQL
--   Relational Database Design
-
-### Data Analysis
-
--   Python
--   Pandas
--   NumPy
--   Statistical Analysis
-
-### Visualization & BI
-
--   Microsoft Excel
--   Power BI
--   Matplotlib
--   Seaborn
--   Plotly
-
-### Development & Collaboration
-
--   Git
--   GitHub
--   Jupyter Notebook
--   Google Colab
-
-## 🎯 Skills Developed
-
-Through these assignments and projects, I worked on:
-
--   Understanding business problems
--   Writing business requirements
--   SQL database design
--   Data extraction and querying
--   Data cleaning and preparation
--   Exploratory data analysis
--   Statistical analysis
--   KPI understanding
--   Dashboard development
--   Data visualization
--   Business insight generation
--   Presenting analytical findings
-
-## 📁 Repository Structure
-
-``` text
-Data-Analytics-Internship/
-│
-├── A1 - Client Persona/
-├── A2 - Business Requirements Document/
-├── A3 - SQL DDL DML/
-├── A4 - SQL Assignment/
-├── A5 - SQL Hands-on/
-├── A6 - Final SQL Use Cases/
-├── A7 - Quantitative Assignment/
-│
-├── Retail Sales Management System/
-│   ├── SQL Scripts
-│   └── ER Diagrams
-│
-├── DMART Varthur Sales/
-│   ├── Sales Dataset
-│   └── Dashboard
-│
-└── README.md
-```
-
-## 💡 Internship Learning
-
-This internship helped me understand the complete flow of an analytics
-project:
-
-``` text
-Business Problem
-       ↓
-User / Client Understanding
-       ↓
-Business Requirements
-       ↓
-Data & Database
-       ↓
-SQL / Data Preparation
-       ↓
-Analysis
-       ↓
-Visualization / Dashboard
-       ↓
-Business Insights
-       ↓
-Recommendations
-```
-
-The biggest learning was understanding that data analytics is not only
-about writing SQL queries or creating charts. The analysis needs to
-connect back to the actual business problem and help the user make
-better decisions.
-
-## 📌 Note
-
-The DMART Varthur project is a **synthetic case study** created for
-learning and internship purposes. The repository contains academic and
-internship work completed as part of the Data Analytics Internship.
-
-## 👤 Author
-
-**Deepak Kumar**
-
-Data Analytics \| SQL \| Python \| Excel \| Power BI
+| Analysis Area | Purpose |
+|---|---|
+| Sales Performance | Monitor overall sales |
+| Bills & Units | Track transaction volume |
+| Average Bill Value | Measure transaction value |
+| Category Contribution | Compare category performance |
+| Product / SKU Performance | Identify product-level trends |
+| Payment Modes | Understand payment behavior |
+| Sales Trends | Track performance over time |
+| Weekend vs Weekday | Compare shopping periods |
+| Festival vs Non-Festival | Evaluate seasonal periods |
+| Salary vs Non-Salary | Compare salary-cycle periods |
+| Discount Impact | Examine discount-related sales |
+| Bill Value Distribution | Understand transaction distribution |
 
 ---
 
 # 🐍 Python OOP, Data Analysis & Interview Practice
 
-The following work extends the internship portfolio with practical Python OOP assignments, data-analysis exercises, and interview-style business cases.
+The internship also included practical Python programming, OOP exercises, data-analysis assignments, and interview-style business cases.
 
-# Python, Data Analysis & Business Intelligence Practice
+These exercises focus on applying programming and analytical concepts to realistic business scenarios.
 
-A collection of assignments, interview-style problems, and practical
-exercises completed during my internship training.
+---
 
-This folder focuses mainly on **Python Object-Oriented Programming
-(OOP), Pandas-based data analysis, NumPy, data auditing, business
-problem solving, and interview preparation**.
+# 10. 🛍️ Amazon-Style Office Order Processing
 
-## Overview
+Built a beginner-plus Python OOP solution based on an e-commerce order-processing scenario.
 
-The work in this folder is designed around practical business scenarios
-rather than only basic coding exercises.
+### Main Classes
 
-The assignments cover two main areas:
+- `Customer`
+- `Product`
+- `Order`
+- `Invoice`
 
-1.  **Python OOP and application logic**
-2.  **Data analysis and business case practice**
+### Functionality
 
-The OOP work focuses on building small business systems with classes,
-object relationships, validation, inheritance, encapsulation,
-polymorphism, exception handling, and file handling.
+- Customer details
+- Product details
+- Stock availability
+- Order quantity
+- Order total
+- Stock reduction
+- Order status
+- GST calculation
+- Invoice generation
+- Basic validation
 
-The analytics work focuses on inspecting messy data, cleaning it,
-applying business rules, creating useful metrics, filtering problem
-records, and explaining the business meaning of the results.
+The exercise demonstrates how multiple classes can interact to model a small business application.
 
-## Projects & Assignments
+---
 
-### 1. Amazon-Style Office Order Processing System
+# 11. 🥦 Online Grocery Order Management
 
-A beginner-plus Python OOP assignment based on an e-commerce order
-processing scenario.
+Built an OOP solution for an online grocery ordering scenario.
 
-The system uses four main classes:
+### Main Classes
 
--   `Customer`
--   `Product`
--   `Order`
--   `Invoice`
+- `Customer`
+- `PremiumCustomer`
+- `GroceryItem`
+- `Order`
 
-The `Order` class connects customer and product objects, while the
-`Invoice` class works with the order object.
+### OOP Concepts
 
-The system handles:
+| Concept | Application |
+|---|---|
+| Encapsulation | Protecting sensitive values |
+| Inheritance | Premium customer extending customer behavior |
+| Method Overriding | Customer-specific discount behavior |
+| Object Relationships | Linking customers, products and orders |
+| Validation | Quantity, stock, discount and payment checks |
 
--   Customer details
--   Product details
--   Stock availability
--   Order quantity
--   Order total
--   Stock reduction
--   Order status
--   GST calculation
--   Invoice generation
--   Basic validation
+Premium customers receive a **10% discount** according to the assignment's business rule.
 
-The main purpose was to understand how multiple classes can work
-together like a small business application.
+A key transaction rule is that stock is reduced only after successful payment.
 
-### 2. Online Grocery Order Management System
+---
 
-Built an interview-style OOP solution for an online grocery ordering
-scenario.
+# 12. 🏪 Retail Sales Order & Customer Loyalty
 
-The system includes:
+Developed a Python-based retail order system with different customer types:
 
--   `Customer`
--   `PremiumCustomer`
--   `GroceryItem`
--   `Order`
+- Regular Customer
+- Loyalty Customer
+- Business Customer
 
-It demonstrates:
+### Functionality
 
--   Encapsulation
--   Private variables
--   Inheritance
--   Method overriding
--   Multiple class linking
--   Business validation
+- Customer-specific discounts
+- Product stock management
+- Wallet payments
+- Order validation
+- Failed-order handling
+- Order records
+- Sales reporting
 
-Normal customers receive no discount, while premium customers receive a
-10% discount. The system checks quantity, stock, discount, and wallet
-payment before completing an order. 
+The project demonstrates inheritance, method overriding, encapsulation, and object relationships.
 
-A key business rule is that stock is reduced only after successful
-payment. 
+---
 
-### 3. Retail Sales Order & Customer Loyalty System
+# 13. 🍔 Food Delivery Order System
 
-Developed a Python-based retail order system using OOP concepts.
+Practiced OOP using a food-delivery business scenario.
 
-The system supports different customer types:
+### Main Classes
 
--   Regular Customer
--   Loyalty Customer
--   Business Customer
+- `Customer`
+- `FoodItem`
+- `FoodOrder`
+- `OrderFileManager`
 
-Different customer types receive different discount rules.
+### Business Rules
 
-The project also handles:
+- Validate order quantity
+- Check food availability
+- Check customer wallet balance
+- Process successful and failed orders
+- Update wallet after successful payment
+- Update food quantity after successful payment
+- Store order information in a text file
 
--   Product stock
--   Wallet payments
--   Order validation
--   Failed orders
--   Order records
--   Sales reporting
+Test scenarios include successful orders and failures caused by insufficient balance, unavailable quantity, invalid input, and zero quantity.
 
-The implemented practice includes inheritance and method overriding for
-customer discounts, encapsulation for sensitive values, and object
-linking between customers, products, and orders.
+---
 
-The system is also designed to keep failed orders because they can be
-useful for later business analysis. 
-
-### 4. Food Delivery Order System
-
-Practiced OOP through a food delivery business scenario.
-
-Main classes include:
-
--   `Customer`
--   `FoodItem`
--   `FoodOrder`
--   `OrderFileManager`
-
-The system checks:
-
--   Order quantity
--   Food availability
--   Customer wallet balance
--   Successful or failed order status
-
-Successful orders update both the wallet and available food quantity.
-Every order is saved into a text file for later use.
-
-Test cases include successful orders and failures caused by low wallet
-balance, unavailable quantity, invalid input, and zero quantity.
-
-### 5. Movie Ticket Booking & Seat Management System
+# 14. 🎬 Movie Ticket Booking & Seat Management
 
 Built a cinema booking system using Python OOP.
 
-Main classes include:
+### Main Classes
 
--   `Customer`
--   `Movie`
--   `Booking`
--   `BookingFileManager`
+- `Customer`
+- `Movie`
+- `Booking`
+- `BookingFileManager`
 
-The system handles:
+### Functionality
 
--   Customer wallet
--   Movie ticket price
--   Available seats
--   Customer discounts
--   Payment
--   Booking status
--   File-based booking records
+- Customer wallet
+- Ticket pricing
+- Available-seat management
+- Customer discounts
+- Payment
+- Booking status
+- File-based booking records
 
-Different customer types can have different offers, including student
-and premium customer discounts. Seats are reduced only after successful
-payment. 
+The implementation also validates invalid seat quantities, unavailable seats, insufficient wallet balance, and incorrect input.
 
-The implementation also includes validation for invalid seat quantities,
-unavailable seats, low wallet balance, and incorrect input.
+---
 
-## 6. OOP Interview Practice
+# 15. 🧩 OOP Interview Practice
 
-The final group interview practice expanded the OOP exercises into more
-realistic business systems.
+Expanded the OOP exercises into more realistic interview-style business systems.
 
-The practice problems included:
+### Practice Problems
 
-### Retail Sales Order & Customer Loyalty
+| Problem | Main Concepts |
+|---|---|
+| Retail Sales & Customer Loyalty | Inheritance, discounts, stock, payments |
+| Food Delivery & Restaurant Reporting | Payment methods, reporting, polymorphism |
+| Movie Booking & Seat Management | Offers, payment, seat management |
+| Employee Equipment Request | Roles, approvals, inventory, audit reporting |
 
-Focused on:
+### OOP Concepts Practiced
 
--   Customer categories
--   Loyalty benefits
--   Payment
--   Stock management
--   Order records
--   Sales reporting
+- Classes and objects
+- Encapsulation
+- Inheritance
+- Method overriding
+- Polymorphism
+- Abstraction
+- Exception handling
+- File handling
+- Multi-class relationships
+- Business validation
 
-### Food Delivery Order & Restaurant Reporting
+---
 
-Focused on:
+# 16. 🎓 Online Course Enrollment Analysis
 
--   Multiple payment methods
--   Restaurant-level reporting
--   Food quantity management
--   Successful and failed orders
--   Payment polymorphism
+Performed a practical Pandas analysis for an online-learning business.
 
-### Movie Ticket Booking & Seat Management
+### Dataset Fields
 
-Focused on:
+- Enrollment ID
+- Student Name
+- City
+- Course Name
+- Course Category
+- Course Fee
+- Payment Status
+- Completion Status
+- Discount Code
 
--   Customer offers
--   Payment methods
--   Seat management
--   Booking records
--   Failure handling
+### Data-Quality Issues
 
-### Employee Equipment Request & Inventory Tracking
+- Inconsistent city formatting
+- Inconsistent category formatting
+- Currency text in fees
+- Duplicate records
+- Missing student names
+- Failed payments
+- Incomplete enrollments
+- Missing discount codes
 
-Focused on:
+### Cleaning Process
 
--   Employee roles
--   Equipment requests
--   Approval rules
--   Inventory tracking
--   Request history
--   Audit reporting
-
-These exercises were designed around clean class design, validation,
-error handling, file handling, inheritance, polymorphism, abstraction,
-and encapsulation. 
-
-## 7. Online Course Enrollment Analysis
-
-Worked on a practical Pandas case where an online learning company wants
-to understand why enrollment revenue is lower than expected.
-
-The analysis works with a deliberately messy dataset containing fields
-such as:
-
--   Enrollment ID
--   Student name
--   City
--   Course name
--   Course category
--   Course fee
--   Payment status
--   Completion status
--   Discount code
-
-The dataset includes common business data-quality problems such as
-inconsistent city/category formatting, currency text in fees,
-duplicates, missing names, failed payments, incomplete enrollments, and
-missing discount codes. 
-
-### Data Cleaning
-
-The analysis includes:
-
--   Standardizing city names
--   Standardizing course categories
--   Converting course fees to numeric values
--   Handling missing student names
--   Handling missing discount codes
--   Removing exact duplicates
+1. Standardize city names
+2. Standardize course categories
+3. Convert course fees to numeric values
+4. Handle missing student names
+5. Handle missing discount codes
+6. Remove exact duplicates
 
 ### Business Metrics
 
 Two revenue measures were created:
 
--   `gross_fee`
--   `valid_fee_collected`
+- `gross_fee`
+- `valid_fee_collected`
 
-Valid collected revenue is counted only when the payment is successful
-and the course is completed. 
+Valid collected revenue is counted only when **payment is successful and the course is completed**.
 
-### Business Analysis
+### Business Questions
 
-The analysis investigates:
+- How many payments failed?
+- How many enrollments remain incomplete?
+- How many are paid but incomplete?
+- Which high-value enrollments failed?
+- Which cities perform better?
+- What is the fee distribution?
+- How are discount codes being used?
+- Which records create data-quality concerns?
 
--   Failed payments
--   Incomplete enrollments
--   Paid but incomplete enrollments
--   High-value failed enrollments
--   Selected city performance
--   Fee ranges
--   Discount-code usage
--   Discount users with zero valid revenue
--   City data-quality issues
--   Course-category data-quality issues
+The objective was to convert messy enrollment data into **business-safe metrics and actionable findings**.
 
-The final analysis produces business insights instead of only displaying
-Python output. 
+---
 
-## 8. Data Analyst Interview Case Practice
+# 17. 🧪 Data Analyst Interview Case Practice
 
-This section contains interview-style business cases using Python and
-Pandas.
+Completed interview-style cases using **Python and Pandas**.
 
-The practice focuses on:
+### Core Skills
 
--   Data inspection
--   Data cleaning
--   Type conversion
--   Missing-value handling
--   Duplicate checks
--   Filtering
--   Conditional columns
--   Business-safe metrics
--   Basic business summaries
-
-The exercises emphasize understanding the business request first and
-explaining the reason behind data exclusions or flags.
+- Data inspection
+- Data cleaning
+- Type conversion
+- Missing-value handling
+- Duplicate detection
+- Filtering
+- Conditional columns
+- Business-safe metrics
+- Descriptive analysis
+- Business interpretation
 
 ### Cases Covered
 
-#### Retail Revenue Reconciliation
+| Case | Business Question |
+|---|---|
+| Retail Revenue Reconciliation | Can reported revenue be trusted after returns and cancellations? |
+| Superstore Profit Leakage | Are discounts and high-sales transactions affecting profitability? |
+| Hotel Booking Cancellation Audit | Where is cancellation and revenue risk concentrated? |
+| Food Delivery Profitability | What is the actual contribution after fees, discounts and refunds? |
+| NYC Taxi Fare Audit | Which trips contain suspicious values or inconsistencies? |
+| Bank Marketing Campaign | Which customer segments and campaign activities influence conversion? |
+| Telco Customer Churn | Which customers and plans show higher churn exposure? |
+| Online Course Engagement | Which learner behaviors relate to completion and inactivity? |
+| Retail Sales, Returns & Shipping | What is the reconciled net sales and shipping exposure? |
+| D2C E-Commerce Funnel | Where are customers dropping through the purchase funnel? |
 
-Investigates unreliable revenue caused by cancellations, negative
-quantities, missing customer IDs, unusual prices, and duplicate-like
-invoice lines.
+The case practice emphasizes **descriptive analysis and business reasoning** rather than predictive modelling unless the case specifically requires it.
 
-#### Superstore Profit Leakage
+---
 
-Investigates whether discounts and high-sales, low-profit transactions
-are affecting profitability.
-
-#### Hotel Booking Cancellation Audit
-
-Looks at cancellation risk, revenue at risk, unusual booking records,
-and hotel/segment differences.
-
-#### Food Delivery Profitability
-
-Examines discounts, delivery fees, commissions, payment processing fees,
-refunds, and net contribution.
-
-#### NYC Taxi Fare Audit
-
-Identifies suspicious trips, unusual fares, timestamp issues,
-passenger-count problems, and zero-distance trips.
-
-#### Bank Marketing Campaign Audit
-
-Examines campaign effort, customer segments, contact frequency, and
-subscription conversion.
-
-#### Telco Customer Churn Review
-
-Looks at churn exposure, contract types, payment methods, monthly
-charges, and high-value churn customers.
-
-#### Online Course Engagement Review
-
-Examines learner engagement, completion, inactive learners, and possible
-data inconsistencies.
-
-#### Retail Sales, Returns & Shipping Reconciliation
-
-Investigates gross sales, returned value, net sales, shipping cost
-exposure, and suspicious transactions.
-
-#### D2C E-Commerce Funnel Investigation
-
-Examines customer movement through visit, product view, cart, checkout,
-and purchase stages.
-
-The case practice is intentionally focused on descriptive analysis and
-business interpretation rather than predictive modelling.
-
-## 9. Online Retail Sales Audit
+# 18. 🧾 Online Retail Sales Audit
 
 Performed a NumPy-focused audit using the **Online Retail II** dataset.
 
-The business question was:
+### Business Question
 
-> Can the current sales dashboard be trusted directly, or should the
-> transaction data be cleaned and validated first?
+> Can the current sales dashboard be trusted directly, or should the transaction data be cleaned and validated first?
 
-The audit investigates:
+### Audit Areas
 
--   Overall sales performance
--   Risky transaction values
--   Returns and cancellations
--   Product revenue contribution
--   Country-level revenue
--   High-value customers
--   Missing or invalid values
--   Extreme values
--   Quantity, price, and revenue relationships
+- Overall sales performance
+- Risky transaction values
+- Returns and cancellations
+- Product revenue contribution
+- Country-level revenue
+- High-value customers
+- Missing values
+- Invalid values
+- Extreme values
+- Quantity, price and revenue relationships
 
-The final deliverable is intended to be a short business report with
-findings and a recommendation, not only code output.
-
----
-
-## 🧰 Tools & Technologies
-
-### Programming & Data Analysis
-
-- Python
-- Object-Oriented Programming
-- Pandas
-- NumPy
-- Statistical Analysis
-
-### Database & BI
-
-- SQL
-- PostgreSQL
-- Relational Database Design
-- Microsoft Excel
-- Power BI
-
-### Visualization
-
-- Matplotlib
-- Seaborn
-- Plotly
-
-### Development & Collaboration
-
-- Git
-- GitHub
-- Jupyter Notebook
-- Google Colab
+The final objective is to produce a concise **business audit and recommendation**, rather than only technical output.
 
 ---
 
-## 🎯 Skills Developed
+# 🧰 Technology Stack
 
-Through these assignments and projects, I worked on:
+| Category | Technologies |
+|---|---|
+| Programming | Python |
+| Data Analysis | Pandas, NumPy |
+| Statistics | Descriptive & Quantitative Analysis |
+| Database | SQL, PostgreSQL |
+| Business Intelligence | Microsoft Excel, Power BI |
+| Visualization | Matplotlib, Seaborn, Plotly |
+| Development | Jupyter Notebook, Google Colab |
+| Version Control | Git, GitHub |
 
-### Business & Analytical Skills
+---
 
-- Understanding business problems
-- Writing business requirements
-- Defining KPIs
+# 🎯 Skills Developed Under the Internship
+
+## Business & Analytical Skills
+
+- Business problem understanding
+- Client and user analysis
+- Business requirements
+- KPI understanding
 - Data cleaning and preparation
 - Exploratory data analysis
-- Quantitative analysis
 - Statistical analysis
 - Data auditing
 - Business insight generation
-- Presenting analytical findings
-- Making business recommendations
+- Business recommendations
+- Analytical storytelling
 
-### SQL & Database Skills
+## SQL & Database Skills
 
-- Database design
-- Relational tables
+- Relational database design
+- Tables and relationships
 - Primary and foreign keys
 - Constraints
 - DDL, DML, DQL, TCL and DCL
@@ -839,7 +592,7 @@ Through these assignments and projects, I worked on:
 - Transaction management
 - User permissions
 
-### Python & OOP Skills
+## Python & OOP Skills
 
 - Classes and objects
 - Constructors and methods
@@ -855,23 +608,26 @@ Through these assignments and projects, I worked on:
 - Business validation
 - Transaction processing
 
-### BI & Visualization Skills
+## BI & Visualization Skills
 
+- KPI reporting
 - Dashboard development
-- KPI design
-- Sales performance reporting
+- Sales performance analysis
 - Data visualization
-- Filtering and drill-down concepts
+- Filtering
+- Drill-down concepts
 - Business storytelling
 
 ---
 
-## 🔄 End-to-End Analytics Workflow
+# 🔄 End-to-End Analytics Workflow
+
+The internship work follows a complete analytics lifecycle:
 
 ```text
 Business Problem
        ↓
-User / Client Understanding
+Client / User Understanding
        ↓
 Business Requirements
        ↓
@@ -892,7 +648,7 @@ Recommendations
 
 ---
 
-## 🧩 Python OOP Workflow
+# 🧩 Python OOP Workflow
 
 ```text
 Business Problem
@@ -916,7 +672,7 @@ Store Results
 
 ---
 
-## 📊 Data Analysis Workflow
+# 📊 Data Analysis Workflow
 
 ```text
 Business Question
@@ -940,69 +696,29 @@ Business Recommendation
 
 ---
 
-## 📁 Repository Structure
+# 💡 Key Learning
 
-```text
-Data-Analytics-Internship/
-│
-├── A1 - Client Persona/
-├── A2 - Business Requirements Document/
-├── A3 - SQL DDL DML/
-├── A4 - SQL Assignment/
-├── A5 - SQL Hands-on/
-├── A6 - Final SQL Use Cases/
-├── A7 - Quantitative Assignment/
-│
-├── Retail Sales Management System/
-│   ├── SQL Scripts
-│   └── ER Diagrams
-│
-├── DMART Varthur Sales/
-│   ├── Sales Dataset
-│   └── Dashboard
-│
-├── OOP/
-│   ├── Amazon Style OOP
-│   ├── Online Grocery
-│   ├── Retail Sales & Loyalty
-│   ├── Food Delivery
-│   └── Movie Booking
-│
-├── Interview Practice/
-│   ├── OOP Interview Problems
-│   └── Data Analyst Case Practice
-│
-├── Data Analysis/
-│   ├── Online Course Enrollment
-│   └── Online Retail Sales Audit
-│
-└── README.md
-```
+The internship demonstrated that professional data analytics is not limited to writing SQL queries, Python code, or building charts.
+
+A complete analytical solution requires the ability to:
+
+1. Understand the business problem.
+2. Identify the actual user or decision-maker.
+3. Translate business needs into measurable requirements.
+4. Work with structured and messy data.
+5. Validate data before trusting metrics.
+6. Apply appropriate analytical and statistical methods.
+7. Communicate findings clearly.
+8. Convert analysis into useful business recommendations.
+
+The Python OOP work complements the analytics work by developing the ability to translate real-world business processes into **classes, objects, rules, validations, and transaction workflows**.
 
 ---
 
-## 💡 Overall Learning
+## 📌 Internship Outcome
 
-This portfolio helped me understand that data analytics is not only about writing SQL queries, Python code, or creating charts.
+Overall, the work completed under the internship strengthened a combined skill set across:
 
-A strong analytical solution starts with the **business problem**, defines what the user actually needs, validates the data, applies appropriate analysis, and finally converts the results into insights that support better decisions.
+**Business Analysis + SQL + Python + OOP + Data Analysis + Statistics + Excel + Power BI + Business Intelligence**
 
-The OOP work added another layer by developing the ability to translate real-world business processes into structured software objects, rules, validations, and transaction flows.
-
-Together, these projects strengthened both **technical problem-solving** and **business-oriented analytical thinking**.
-
----
-
-## 📌 Project Note
-
-The **DMART Varthur** project is a synthetic case study created for learning and internship purposes.
-
-The repository contains academic, internship, practical, and interview-preparation work completed as part of the Data Analytics Internship.
-
----
-
-## 👤 Author
-
-**Deepak Kumar**
-
-Data Analytics | SQL | Python | Excel | Power BI | Pandas | NumPy
+The portfolio demonstrates a progression from **understanding a business problem** to **designing data solutions, analysing information, validating results, and communicating business insights**.
